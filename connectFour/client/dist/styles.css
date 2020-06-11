@@ -1,3 +1,27 @@
 h1 {
   color: orange;
 }
+
+.board-cont {
+  margin: auto;
+  border: 1px solid lightgrey;
+  /* width: 500px;
+  height: 500px; */
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid grey;
+  background-color: beige;
+}
+
+.square {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: lightpink;
+}
