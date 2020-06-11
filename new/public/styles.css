@@ -1,0 +1,19 @@
+h1 {
+  color:orange;
+}
+
+.person-con-none {
+  display: none;
+}
+
+.person-con-vis {
+  display: flex;
+}
+
+.checkout-btn-vis {
+  display: flex;
+}
+
+.checkout-btn-none {
+  display:none;
+}
