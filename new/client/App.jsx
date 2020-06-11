@@ -39,11 +39,11 @@ class App extends React.Component {
         password: this.state.passwordField}
       this.postPersonalData(newObj, (err, result)=>{
         if (err) {
-          console.log('POST ERROR')
-          console.log(err)
+          console.log('POST ERROR');
+          console.log(err);
         } else {
-          console.log('ITEM POSTED')
-          console.log(result)
+          console.log('ITEM POSTED');
+          console.log(result);
         }
       })
     }
