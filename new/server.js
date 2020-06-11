@@ -16,13 +16,13 @@ app.use(parser.urlencoded({ extended: false }))
 app.post('/api/users', (req, res) => {
   postPersonalData(req, res, (err, data) => {
     if (err) {
-      console.log('ERROR')
-      console.log(err)
-      res.status(400).send()
+      console.log('ERROR');
+      console.log(err);
+      res.status(400).send();
     } else {
-      console.log('SUCCESS')
-      console.log(data)
-      res.status(200).send('ok')
+      console.log('SUCCESS');
+      console.log(data);
+      res.status(200).send('ok');
     }
   })
 
