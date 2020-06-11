@@ -107,7 +107,7 @@ var PersonalData = ({
   checkoutOnClickHandler, handleNameChange, getNameState, getEmailState, handleEmailChange, getPasswordState, handlePasswordChange, submitPersonalData
 }) => (
   <div>
-    <h1>Personal</h1>
+    <h1>PersonalDataForm</h1>
     <form>
       <label>Full Name
         <input type="text" placeholder='Type here...' value={getNameState()}
@@ -127,19 +127,17 @@ var PersonalData = ({
       </label>
     </form>
     <button type='button' onClick={
-
       ()=>{
         checkoutOnClickHandler()
         submitPersonalData()
       }
-
       }>Next</button>
   </div>
 )
 
 var Address = ({checkoutOnClickHandler}) => (
   <div>
-    <h1>Address</h1>
+    <h1>AddressForm</h1>
     <button type='button' onClick={
       checkoutOnClickHandler
       }>Next</button>
@@ -148,7 +146,7 @@ var Address = ({checkoutOnClickHandler}) => (
 
 var Payment = ({checkoutOnClickHandler}) => (
   <div>
-    <h1>Payment</h1>
+    <h1>PaymentForm</h1>
     <button type='button' onClick={
       checkoutOnClickHandler
       }>Next</button>
