@@ -59,7 +59,6 @@ class App extends React.Component {
     } else {
       console.log('Hey, that was ALREADY CLICKED!!!')
     }
-    //check for the winner
   }
 
   getBoard () {
