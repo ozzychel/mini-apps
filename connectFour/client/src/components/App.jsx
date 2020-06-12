@@ -9,7 +9,8 @@ class App extends React.Component {
 
     this.state = {
       currentMatrix: [],
-      currentPalyer: false
+      currentPalyer: false,
+      tabCount: 0
     }
   }
 
@@ -27,12 +28,13 @@ class App extends React.Component {
     i++;
     }
     this.setState({
-      currentMatrix: matr
+      currentMatrix: matr,
+      currentPlayer: false,
+      tabCount: 0
     })
   }
 
   onSquareClickHandler (rowIndex, colIndex) {
-    // console.log(rowIndex, colIndex);
     var newMatrix = [...this.state.currentMatrix];
     if(newMatrix[rowIndex][colIndex] === 5) {
       !this.state.currentPalyer ?
@@ -45,12 +47,14 @@ class App extends React.Component {
       var checkWin = checkWinner(this.state.currentMatrix)
       var checkDr = checkDraw(this.state.currentMatrix)
       if (checkWin) {
-        console.log('WINNER')
+        this.setState({
+          tabCount: 1
+        })
       } else if(checkDr) {
-        console.log('DRAW')
-      } else {
-        console.log('NOT YET')
-      }
+        this.setState({
+          tabCount: 2
+        })
+      } else {}
 
     } else {
       console.log('Hey, that was ALREADY CLICKED!!!')
@@ -63,16 +67,30 @@ class App extends React.Component {
   }
 
   render () {
-
-    return (
-      <div className="board-cont">
-        <Board
-        matrix={this.state.currentMatrix}
-        onSquareClickHandler={this.onSquareClickHandler.bind(this)}
-        getBoard={this.getBoard.bind(this)}
-        />
-      </div>
-    )
+    if(!this.state.tabCount){
+      return (
+        <div className="board-cont">
+          <Board
+          matrix={this.state.currentMatrix}
+          onSquareClickHandler={this.onSquareClickHandler.bind(this)}
+          getBoard={this.getBoard.bind(this)}
+          />
+        </div>
+      )
+    } else if(this.state.tabCount === 1) {
+      return (
+        <div>
+          <h1>WINNER!!!</h1>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1>DRAW!!!</h1>
+          <h2>PLEASE RELOAD THE PAGE TO START OVER...</h2>
+        </div>
+      )
+    }
   }
 }
 
