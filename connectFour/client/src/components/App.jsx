@@ -6,7 +6,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      currentMatrix: []
+      currentMatrix: [],
+      currentPalyer: false
     }
   }
 
@@ -28,13 +29,36 @@ class App extends React.Component {
     })
   }
 
+  onSquareClickHandler (rowIndex, colIndex) {
+    // console.log(rowIndex, colIndex);
+    var newMatrix = [...this.state.currentMatrix];
+    if(newMatrix[rowIndex][colIndex] === 5) {
+      !this.state.currentPalyer ?
+      newMatrix[rowIndex][colIndex] = 0 :
+      newMatrix[rowIndex][colIndex] = 1
+      this.setState({
+        currentPalyer: !this.state.currentPalyer,
+        currentMatrix: newMatrix
+      })
+    } else {
+      console.log('Hey, that was ALREADY CLICKED!!!')
+    }
+    //check for the winner
+  }
 
+  getBoard () {
+    return this.state.currentMatrix
+  }
 
   render () {
 
     return (
       <div className="board-cont">
-        <Board matrix={this.state.currentMatrix}/>
+        <Board
+        matrix={this.state.currentMatrix}
+        onSquareClickHandler={this.onSquareClickHandler.bind(this)}
+        getBoard={this.getBoard.bind(this)}
+        />
       </div>
     )
   }
