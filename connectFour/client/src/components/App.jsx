@@ -1,5 +1,7 @@
 import React from 'react';
 import Board from './Board.jsx';
+import checkWinner from '../lib/checkWinner.js'
+import checkDraw from '../lib/checkDraw.js'
 
 class App extends React.Component {
   constructor (props) {
@@ -40,6 +42,16 @@ class App extends React.Component {
         currentPalyer: !this.state.currentPalyer,
         currentMatrix: newMatrix
       })
+      var checkWin = checkWinner(this.state.currentMatrix)
+      var checkDr = checkDraw(this.state.currentMatrix)
+      if (checkWin) {
+        console.log('WINNER')
+      } else if(checkDr) {
+        console.log('DRAW')
+      } else {
+        console.log('NOT YET')
+      }
+
     } else {
       console.log('Hey, that was ALREADY CLICKED!!!')
     }
